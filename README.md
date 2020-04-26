@@ -5,11 +5,10 @@ Este espacio será utilizado para la clase de lenguaje de programación dirigida
 
 
 
-**Table of Contents**
+**Tabla de contenidos**
 
-[TOCM]
-
-[TOC]
+- [StartM](#StartM).
+- [Planteamiento del problema](##Planteamiento del problema).
 
 # StartM
 
