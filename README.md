@@ -7,7 +7,9 @@ Este espacio será utilizado para la clase de lenguaje de programación dirigida
 
 **Tabla de contenidos**
 
-[TOC]
+- [StartM] (#StartM).
+- [Planteamiento del problema] (#Planteamiento-del-problema).
+
 
 # StartM
 
