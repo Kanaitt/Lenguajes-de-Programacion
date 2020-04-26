@@ -7,9 +7,9 @@ Este espacio será utilizado para la clase de lenguaje de programación dirigida
 
 **Tabla de contenidos**
 
--[StartM](#StartM).
- - [Planteamiento del problema](#Planteamiento-del-problema).
-  - [Problema](#Problema).
+- [StartM](#StartM).
+ -  [Planteamiento del problema](#Planteamiento-del-problema).
+  -  [Problema](#Problema).
   - [Solución](#Solución).
  - [Stakeholders](#Stakeholders).
   - [Stakeholders primarios](#Stakeholders-primarios).
