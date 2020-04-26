@@ -8,13 +8,13 @@ Este espacio será utilizado para la clase de lenguaje de programación dirigida
 **Tabla de contenidos**
 
 [StartM](#StartM).
-[Planteamiento del problema](#Planteamiento-del-problema).
-- [Problema](#Problema).
-- [Solución](#Solución).
-[Stakeholders](#Stakeholders).
-- [Stakeholders primarios](#Stakeholders-primarios).
-- [Stakeholders secundarios](#Stakeholders-secundarios).
-[Requerimientos](#Requerimientos).
+- [Planteamiento del problema](#Planteamiento-del-problema).
+[Problema](#Problema).
+[ Solución](#Solución).
+-[Stakeholders](#Stakeholders).
+[Stakeholders primarios](#Stakeholders-primarios).
+[ Stakeholders secundarios](#Stakeholders-secundarios).
+-[Requerimientos](#Requerimientos).
 
 
 # StartM
