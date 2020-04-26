@@ -8,14 +8,14 @@ Este espacio será utilizado para la clase de lenguaje de programación dirigida
 **Tabla de contenidos**
 
 - [StartM](#StartM).
-- [Planteamiento del problema](##Planteamiento del problema).
+- [Planteamiento del problema](#Planteamiento del problema).
 
 # StartM
 
 ![](https://github.com/Kanaitt/Lenguajes-de-Programacion/blob/master/Proyecto/src/recursos/Iconos/Logopeque%C3%B1o.png?raw=true)
 
 
-##Planteamiento del problema.
+## Planteamiento del problema.
 
 ### Problema.
 El principal problema es la falta de organización de los procesos que tiene una empresa de ejecución de eventos audiovisuales, comenzando el conflicto en las instalaciones principales donde el problema recurrente empieza desde que se recibe una solicitud de cotización hasta la salida del equipo adecuado para el evento asignado. La responsabilidad recae en todos los integrantes por la poca comunicación de salidas y entradas de los diferentes equipos que tienen la empresa aquí algunos ejemplos que se dan actualmente: El personal comercial no lleva un control de que equipos que están en el inventario, la encargada de la contabilidad no sabe cuántas cotizaciones han sido aprobadas y para eso tiene que consultar con la persona del área comercial, el jefe a cargo no posee información de que producto a salido de inventario y que ganancia en especial tiene ese producto.
