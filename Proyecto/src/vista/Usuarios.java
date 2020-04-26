@@ -15,12 +15,10 @@ public class Usuarios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        borarrUsuariosText1 = new javax.swing.JLabel();
         modificarUsuariosText = new javax.swing.JLabel();
         crearUSuariosText = new javax.swing.JLabel();
         crearUsuarios = new javax.swing.JLabel();
         modificarUsuarios = new javax.swing.JLabel();
-        borrarUsuarios = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         Usuarios = new javax.swing.JLabel();
         LSE = new javax.swing.JLabel();
@@ -30,20 +28,15 @@ public class Usuarios extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        borarrUsuariosText1.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
-        borarrUsuariosText1.setForeground(new java.awt.Color(0, 0, 0));
-        borarrUsuariosText1.setText("BORRAR USUARIOS");
-        add(borarrUsuariosText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(927, 410, 230, -1));
-
         modificarUsuariosText.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
         modificarUsuariosText.setForeground(new java.awt.Color(0, 0, 0));
-        modificarUsuariosText.setText("EDITAR USUARIOS");
-        add(modificarUsuariosText, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 410, 220, -1));
+        modificarUsuariosText.setText("EDICION DE USUARIOS");
+        add(modificarUsuariosText, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, 270, -1));
 
         crearUSuariosText.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
         crearUSuariosText.setForeground(new java.awt.Color(0, 0, 0));
-        crearUSuariosText.setText("CREAR USUARIOS");
-        add(crearUSuariosText, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 410, -1, -1));
+        crearUSuariosText.setText("CREACION DE USUARIOS");
+        add(crearUSuariosText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
 
         crearUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/crear_usuarios.png"))); // NOI18N
         crearUsuarios.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -56,7 +49,7 @@ public class Usuarios extends javax.swing.JPanel {
                 crearUsuariosMouseClicked(evt);
             }
         });
-        add(crearUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 180, -1));
+        add(crearUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 180, -1));
 
         modificarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/modificar_usuarios.png"))); // NOI18N
         modificarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,10 +57,7 @@ public class Usuarios extends javax.swing.JPanel {
                 modificarUsuariosMouseClicked(evt);
             }
         });
-        add(modificarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 180, -1));
-
-        borrarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/borrar_usuarios.png"))); // NOI18N
-        add(borrarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 220, -1, -1));
+        add(modificarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 230, 180, -1));
 
         jToggleButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jToggleButton1.setText("VOLVER");
@@ -127,8 +117,6 @@ public class Usuarios extends javax.swing.JPanel {
     private javax.swing.JLabel Icono_StarM1;
     private javax.swing.JLabel LSE;
     private javax.swing.JLabel Usuarios;
-    private javax.swing.JLabel borarrUsuariosText1;
-    private javax.swing.JLabel borrarUsuarios;
     private javax.swing.JLabel crearUSuariosText;
     private javax.swing.JLabel crearUsuarios;
     private javax.swing.JLabel fondo;

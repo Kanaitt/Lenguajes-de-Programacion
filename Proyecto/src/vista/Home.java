@@ -2,7 +2,7 @@
 package vista;
 
 public class Home extends javax.swing.JPanel {
-    private Principal principal;
+    private final Principal principal;
     /**
      * Creates new form Home
      * @param principal
@@ -16,7 +16,7 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
         logo_usuarios = new javax.swing.JLabel();
         salir = new javax.swing.JLabel();
         LSE = new javax.swing.JLabel();
@@ -25,16 +25,17 @@ public class Home extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jToggleButton1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
-        jToggleButton1.setText("USUARIOS");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 140, -1));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("USUARIOS");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
 
         logo_usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/Logo_usuarios.png"))); // NOI18N
+        logo_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logo_usuariosMouseClicked(evt);
+            }
+        });
         add(logo_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 220, -1));
 
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/Salir.png"))); // NOI18N
@@ -61,17 +62,17 @@ public class Home extends javax.swing.JPanel {
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void logo_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logo_usuariosMouseClicked
         // TODO add your handling code here:
         ingresarausuarios();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_logo_usuariosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM;
     private javax.swing.JLabel LSE;
     private javax.swing.JLabel fondo;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logo_usuarios;
     private javax.swing.JLabel salir;
     // End of variables declaration//GEN-END:variables
