@@ -11,10 +11,10 @@ Este espacio será utilizado para la clase de lenguaje de programación dirigida
 - [Planteamiento del problema](#Planteamiento-del-problema).
 [Problema](#Problema).
 [ Solución](#Solución).
--[Stakeholders](#Stakeholders).
+- [Stakeholders](#Stakeholders).
 [Stakeholders primarios](#Stakeholders-primarios).
 [ Stakeholders secundarios](#Stakeholders-secundarios).
--[Requerimientos](#Requerimientos).
+- [Requerimientos](#Requerimientos).
 
 
 # StartM
