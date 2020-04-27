@@ -6,18 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import modelo.Conexion;
 
-
-public class UsuarioBorrar {
+public class ClienteBorrar {
     
-    private Connection modificar_usuario = null;
+    private Connection borrar_cliente = null;
     private PreparedStatement sentencias;
    
-    public String [] borrarUsuariosBD(String name, String email, String cc, String position, String cell, String user, String pass) {
+    public String [] borrarClienteBD(String idEmpresa, String empresa, String correo, String representante, String cargo, String celular, String direccion) {
         try {
 
-            modificar_usuario = Conexion.getConnection();
-            sentencias = modificar_usuario.prepareStatement("DELETE FROM Usuarios WHERE Cedula = ?");
-            sentencias.setString(1, cc);
+            borrar_cliente = Conexion.getConnection();
+            sentencias = borrar_cliente.prepareStatement("DELETE FROM Clientes WHERE IdEmpresa = ?");
+            sentencias.setString(1, idEmpresa);
             sentencias.executeUpdate();
             
          } catch (SQLException e) {

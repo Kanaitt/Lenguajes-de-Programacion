@@ -3,7 +3,6 @@ package vista;
 
 import controlador.UsuarioModificar;
 import controlador.UsuarioBorrar;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
 
-import vista.Usuarios;
+
 
 public class ModificarUsuarios extends javax.swing.JPanel {
 

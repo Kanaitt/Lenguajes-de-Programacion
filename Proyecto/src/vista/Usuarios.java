@@ -30,12 +30,12 @@ public class Usuarios extends javax.swing.JPanel {
 
         modificarUsuariosText.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
         modificarUsuariosText.setForeground(new java.awt.Color(0, 0, 0));
-        modificarUsuariosText.setText("EDICION DE USUARIOS");
+        modificarUsuariosText.setText("EDICIÓN DE USUARIOS");
         add(modificarUsuariosText, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, 270, -1));
 
         crearUSuariosText.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
         crearUSuariosText.setForeground(new java.awt.Color(0, 0, 0));
-        crearUSuariosText.setText("CREACION DE USUARIOS");
+        crearUSuariosText.setText("CREACIÓN DE USUARIOS");
         add(crearUSuariosText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
 
         crearUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/crear_usuarios.png"))); // NOI18N
@@ -68,7 +68,7 @@ public class Usuarios extends javax.swing.JPanel {
         });
         add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, -1, -1));
 
-        Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/Usuarios.png"))); // NOI18N
+        Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/Usuarios2.png"))); // NOI18N
         add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         LSE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Imagenes/LSE.png"))); // NOI18N
