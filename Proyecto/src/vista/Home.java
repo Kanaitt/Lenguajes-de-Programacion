@@ -1,6 +1,13 @@
 
 package vista;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Home extends javax.swing.JPanel {
     private final Principal principal;
     /**
@@ -16,6 +23,8 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        whatsappIcon = new javax.swing.JLabel();
         clientesLabel1 = new javax.swing.JLabel();
         logo_eventos = new javax.swing.JLabel();
         clientesLabel = new javax.swing.JLabel();
@@ -28,6 +37,22 @@ public class Home extends javax.swing.JPanel {
         fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/iconoLinkedin.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 3, -1, -1));
+
+        whatsappIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/iconoWhatsapp.png"))); // NOI18N
+        whatsappIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                whatsappIconMouseClicked(evt);
+            }
+        });
+        add(whatsappIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, -1, -1));
 
         clientesLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         clientesLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -97,6 +122,35 @@ public class Home extends javax.swing.JPanel {
         ingresaraclientes();
     }//GEN-LAST:event_logo_clientesMouseClicked
 
+    private void whatsappIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_whatsappIconMouseClicked
+        
+        try {
+            if (Desktop.isDesktopSupported()){
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.BROWSE)){
+                    desktop.browse(new URI ("https://api.whatsapp.com/send?phone=573112847120&text=Excelente%20proyecto"));
+                }
+            }    
+        } catch (URISyntaxException | IOException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_whatsappIconMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        try {
+            if (Desktop.isDesktopSupported()){
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.BROWSE)){
+                    desktop.browse(new URI ("https://www.linkedin.com/in/sebastian-rodriguez-parra--/"));
+                }
+            }    
+        } catch (URISyntaxException | IOException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }//GEN-LAST:event_jLabel1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM;
@@ -104,11 +158,13 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JLabel clientesLabel;
     private javax.swing.JLabel clientesLabel1;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logo_clientes;
     private javax.swing.JLabel logo_eventos;
     private javax.swing.JLabel logo_usuarios;
     private javax.swing.JLabel salir;
     private javax.swing.JLabel usuariosLabel;
+    private javax.swing.JLabel whatsappIcon;
     // End of variables declaration//GEN-END:variables
     
     
