@@ -60,6 +60,11 @@ public class Home extends javax.swing.JPanel {
         add(clientesLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 300, -1, -1));
 
         logo_eventos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Iconos/logoEventos.png"))); // NOI18N
+        logo_eventos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logo_eventosMouseClicked(evt);
+            }
+        });
         add(logo_eventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, -1, -1));
 
         clientesLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -151,6 +156,11 @@ public class Home extends javax.swing.JPanel {
          
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void logo_eventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logo_eventosMouseClicked
+        // TODO add your handling code here:
+        ingresarCotizacion();
+    }//GEN-LAST:event_logo_eventosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM;
@@ -178,6 +188,10 @@ public class Home extends javax.swing.JPanel {
     
     private void ingresaraclientes(){
         principal.irAClientes(this);
+    }
+    
+    private void ingresarCotizacion(){
+        principal.irACotizacion(this);
     }
 }
 

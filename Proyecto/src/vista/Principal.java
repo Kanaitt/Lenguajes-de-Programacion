@@ -18,6 +18,7 @@ public final class Principal extends javax.swing.JFrame {
     private ModificarUsuarios modificarusuarios;
     private CambioContraseña cambioContraseña;
     private CRUDclientes crudclientes;
+    private CRUDcotizacion crudcotizacion;
 
     public Principal() {
         //initComponents();
@@ -163,6 +164,17 @@ public final class Principal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null); 
     }
+    
+    protected void irACotizacion(JPanel jPanel) {        
+        remove(jPanel);
+        crudcotizacion = new CRUDcotizacion(this);
+        crudcotizacion.setVisible(true);
+        add(crudcotizacion);
+        pack();
+        setLocationRelativeTo(null); 
+    }
+
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

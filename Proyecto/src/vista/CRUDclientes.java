@@ -45,7 +45,7 @@ public class CRUDclientes extends javax.swing.JPanel {
 
         void listar() {
         tabla = new DefaultTableModel();
-        tabla.addColumn("IDEMPRESA");
+        tabla.addColumn("     ID");
         tabla.addColumn("EMPRESA");
         tabla.addColumn("CORREO");
         tabla.addColumn("REPRESENTANTE");
@@ -59,6 +59,7 @@ public class CRUDclientes extends javax.swing.JPanel {
         
         String datos[] = new String[7];
         
+        tableClientes.getColumnModel().getColumn(0).setPreferredWidth(0);//Ancho de columna
         
         try {
             Statement st = conector.createStatement();
