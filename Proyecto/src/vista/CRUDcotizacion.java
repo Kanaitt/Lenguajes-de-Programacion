@@ -15,12 +15,108 @@ public class CRUDcotizacion extends javax.swing.JPanel {
 
     private final Principal principal;
     
+    Conexion conectar = new Conexion();
+    Connection conector = Conexion.getConnection();
+    
+    DefaultTableModel tabla2;
+    int filasCliente;
+    int filasCotizacion;
+    
     public CRUDcotizacion(Principal principal) {
         this.principal = principal;
         initComponents();
+        listarCliente();
+        listarCotizacion();
     }
     
+    void listarCliente() {
+        tabla2 = new DefaultTableModel();
+        tabla2.addColumn("ID");
+        tabla2.addColumn("EMPRESA");
+        tabla2.addColumn("REPRESENTANTE");
+        tabla2.addColumn("CELULAR");
+        
+        this.tableCliente.setModel(tabla2);
+        
+        String mostrarDatos = "SELECT IdEmpresa, Empresa, Representante, Celular FROM Clientes";
+        
+        String datos[] = new String[4];
+        
+        tableCliente.getColumnModel().getColumn(0).setPreferredWidth(0);//Ancho de columna
+        
+        try {
+            Statement st = conector.createStatement();
+            ResultSet rs = st.executeQuery(mostrarDatos);
+            
+            while (rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                datos[3]=rs.getString(4);
+                
+                tabla2.addRow(datos);
+            }
+            tableCliente.setModel(tabla2);
+        } catch (SQLException e) {
+            System.out.println("no se pudieron mostrar los datos");
+            e.printStackTrace(); //imprimir excepciones de java
+        }
+    }
     
+    void listarCotizacion() {
+        tabla2 = new DefaultTableModel();
+        tabla2.addColumn("ID");
+        tabla2.addColumn("ID EMP");
+        tabla2.addColumn("EMPRESA");
+        tabla2.addColumn("REPRESENTANTE");
+        tabla2.addColumn("CELULAR");
+        tabla2.addColumn("PROYECTO");
+        tabla2.addColumn("FECHA MONTAJE");
+        tabla2.addColumn("FECHA ACTIVIDAD");
+        tabla2.addColumn("CIUDAD");
+        tabla2.addColumn("PAGO");
+        tabla2.addColumn("FECHA");
+        tabla2.addColumn("CEDULA");
+        tabla2.addColumn("NOMBRE");
+        tabla2.addColumn("OBSERVACION");
+        
+        this.tableCotizacion.setModel(tabla2);
+        
+        String mostrarDatos = "SELECT IdCotizacion, Clientes.IdEmpresa, Clientes.Empresa, Clientes.Representante, Clientes.Celular, Proyecto, FechaMontaje ,FechaActividad Date, Ciudad, Pago, FechaElaboracion, Usuarios.Cedula, Usuarios.Nombre, Observacion FROM Cotizacion INNER JOIN Clientes ON Cotizacion.IdEmpresa = Clientes.IdEmpresa INNER JOIN Usuarios ON Cotizacion.Cedula = Usuarios.Cedula";
+        
+        String datos2[] = new String[14];
+        
+        tableCotizacion.getColumnModel().getColumn(0).setPreferredWidth(0);//Ancho de columna
+        tableCotizacion.getColumnModel().getColumn(1).setPreferredWidth(45);
+        
+        try {
+            Statement st = conector.createStatement();
+            ResultSet rs = st.executeQuery(mostrarDatos);
+            
+            while (rs.next()){
+                datos2[0]=rs.getString(1);
+                datos2[1]=rs.getString(2);
+                datos2[2]=rs.getString(3);
+                datos2[3]=rs.getString(4);
+                datos2[4]=rs.getString(5);
+                datos2[5]=rs.getString(6);
+                datos2[6]=rs.getString(7);
+                datos2[7]=rs.getString(8);
+                datos2[8]=rs.getString(9);
+                datos2[9]=rs.getString(10);
+                datos2[10]=rs.getString(11);
+                datos2[11]=rs.getString(12);
+                datos2[12]=rs.getString(13);
+                datos2[13]=rs.getString(14);
+                
+                tabla2.addRow(datos2);
+            }
+            tableCotizacion.setModel(tabla2);
+        } catch (SQLException e) {
+            System.out.println("no se pudieron mostrar los datos");
+            e.printStackTrace(); //imprimir excepciones de java
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,11 +128,11 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane3 = new javax.swing.JScrollPane();
-        tebleCliente = new javax.swing.JTable();
+        tableCliente = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCotizacion = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textObservacion = new javax.swing.JTextArea();
         botomCrearCotizacion1 = new javax.swing.JToggleButton();
         botomCrearCotizacion = new javax.swing.JToggleButton();
         observacionLabel = new javax.swing.JLabel();
@@ -72,18 +168,23 @@ public class CRUDcotizacion extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tebleCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tebleCliente.setModel(new javax.swing.table.DefaultTableModel(
+        tableCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tableCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "EMPRESA", "REPRESENTANTE", "CELULAR"
+
             }
         ));
-        jScrollPane3.setViewportView(tebleCliente);
+        tableCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableClienteMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tableCliente);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 110, 280, 210));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 110, 280, 230));
 
         tableCotizacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tableCotizacion.setModel(new javax.swing.table.DefaultTableModel(
@@ -91,24 +192,29 @@ public class CRUDcotizacion extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID COTIZ.", "ID EMPRESA", "EMPRESA", "REPRESENTANTE", "CELULAR", "PROYECTO", "FECHA MONTAJE", "FECHA ACTIVIDAD", "CIUDAD", "PAGO", "FECHA", "CEDULA", "NOMBRE", "OBSERVACION"
+
             }
         ));
+        tableCotizacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCotizacionMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableCotizacion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 1100, 260));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 1090, 260));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        textObservacion.setColumns(20);
+        textObservacion.setRows(5);
+        jScrollPane2.setViewportView(textObservacion);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 460, 50));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 460, 80));
 
         botomCrearCotizacion1.setText("MODIFICAR COTIZACIÓN");
-        add(botomCrearCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, -1, -1));
+        add(botomCrearCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
         botomCrearCotizacion.setText("CREAR COTIZACIÓN");
-        add(botomCrearCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 610, -1, -1));
+        add(botomCrearCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
 
         observacionLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         observacionLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -141,7 +247,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         ciudadLabel.setText("Ciudad de ejecución");
         add(ciudadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, -1, -1));
 
-        textFechaActividad.setText("(dd-mm-aa)");
+        textFechaActividad.setText("(año-mes-dia)");
         add(textFechaActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 150, -1));
 
         fechaActividadLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -240,6 +346,39 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         regresaraHome();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void tableClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClienteMouseClicked
+        // TODO add your handling code here:
+        int seleccion = tableCliente.getSelectedRow();
+        
+        textIdCliente.setText(tableCliente.getValueAt(seleccion, 0).toString());
+        textEmpresa.setText(tableCliente.getValueAt(seleccion, 1).toString());
+        textRepresentante.setText(tableCliente.getValueAt(seleccion, 2).toString());
+        textCelular.setText(tableCliente.getValueAt(seleccion, 3).toString());       
+        filasCliente=seleccion;   
+             
+    }//GEN-LAST:event_tableClienteMouseClicked
+
+    private void tableCotizacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCotizacionMouseClicked
+        // TODO add your handling code here:
+       
+        int seleccion = tableCotizacion.getSelectedRow();
+        
+        textIdCotizacion.setText(tableCotizacion.getValueAt(seleccion, 0).toString());
+        textIdCliente.setText(tableCotizacion.getValueAt(seleccion, 1).toString());
+        textEmpresa.setText(tableCotizacion.getValueAt(seleccion, 2).toString());
+        textRepresentante.setText(tableCotizacion.getValueAt(seleccion, 3).toString());
+        textCelular.setText(tableCotizacion.getValueAt(seleccion, 4).toString());  
+        textProyecto.setText(tableCotizacion.getValueAt(seleccion, 5).toString());
+        textFechaMontaje.setText(tableCotizacion.getValueAt(seleccion, 6).toString());
+        textFechaActividad.setText(tableCotizacion.getValueAt(seleccion, 7).toString());
+        textCiudad.setText(tableCotizacion.getValueAt(seleccion, 8).toString());
+        textPago.setText(tableCotizacion.getValueAt(seleccion, 9).toString());
+        textFechaElaboracion.setText(tableCotizacion.getValueAt(seleccion, 10).toString());
+        textCedulaUsuario.setText(tableCotizacion.getValueAt(seleccion, 11).toString());
+        textObservacion.setText(tableCotizacion.getValueAt(seleccion, 13).toString()); 
+        filasCotizacion=seleccion;    
+    }//GEN-LAST:event_tableCotizacionMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM1;
@@ -259,15 +398,14 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel observacionLabel;
     private javax.swing.JLabel pagoLabel;
     private javax.swing.JLabel proyectoLabel;
     private javax.swing.JLabel representanteLabel;
     private javax.swing.JLabel salir;
+    private javax.swing.JTable tableCliente;
     private javax.swing.JTable tableCotizacion;
-    private javax.swing.JTable tebleCliente;
     private javax.swing.JTextField textCedulaUsuario;
     private javax.swing.JTextField textCelular;
     private javax.swing.JTextField textCiudad;
@@ -277,6 +415,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     private javax.swing.JTextField textFechaMontaje;
     private javax.swing.JTextField textIdCliente;
     private javax.swing.JTextField textIdCotizacion;
+    private javax.swing.JTextArea textObservacion;
     private javax.swing.JTextField textPago;
     private javax.swing.JTextField textProyecto;
     private javax.swing.JTextField textRepresentante;
