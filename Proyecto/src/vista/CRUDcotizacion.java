@@ -1,9 +1,9 @@
 
 package vista;
 
-import controlador.ClienteCrear;
-import controlador.ClienteModificar;
-import controlador.ClienteBorrar;
+import controlador.CotizacionCrear;
+import controlador.CotizacionModificar;
+
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,6 +14,9 @@ import modelo.Conexion;
 public class CRUDcotizacion extends javax.swing.JPanel {
 
     private final Principal principal;
+    
+    CotizacionCrear cotizacioncrear = new CotizacionCrear();
+    CotizacionModificar cotizacionmodificar = new CotizacionModificar();
     
     Conexion conectar = new Conexion();
     Connection conector = Conexion.getConnection();
@@ -27,6 +30,23 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         initComponents();
         listarCliente();
         listarCotizacion();
+    }
+    
+    public void limpiar(){
+        textIdCotizacion.setText("");
+        textIdCliente.setText("");
+        textEmpresa.setText("");
+        textRepresentante.setText("");
+        textCelular.setText("");
+        textProyecto.setText("");
+        textFechaMontaje.setText("");
+        textFechaActividad.setText("");
+        textCiudad.setText("");
+        textPago.setText("");
+        textFechaElaboracion.setText("");
+        textCedulaUsuario.setText("");
+        textObservacion.setText("");
+       
     }
     
     void listarCliente() {
@@ -211,9 +231,19 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 460, 80));
 
         botomCrearCotizacion1.setText("MODIFICAR COTIZACIÓN");
+        botomCrearCotizacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botomCrearCotizacion1ActionPerformed(evt);
+            }
+        });
         add(botomCrearCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
         botomCrearCotizacion.setText("CREAR COTIZACIÓN");
+        botomCrearCotizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botomCrearCotizacionActionPerformed(evt);
+            }
+        });
         add(botomCrearCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
 
         observacionLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -378,6 +408,38 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         textObservacion.setText(tableCotizacion.getValueAt(seleccion, 13).toString()); 
         filasCotizacion=seleccion;    
     }//GEN-LAST:event_tableCotizacionMouseClicked
+
+    private void botomCrearCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomCrearCotizacionActionPerformed
+        // TODO add your handling code here:
+        String IdEmpresa = textIdCliente.getText();
+        String Proyecto = textProyecto.getText();
+        String FechaMontaje = textFechaMontaje.getText();
+        String FechaActividad = textFechaActividad.getText();
+        String Ciudad = textCiudad.getText();
+        String Pago = textPago.getText();
+        String FechaElaboracion = textFechaElaboracion.getText();
+        String Cedula = textCedulaUsuario.getText();
+        String Observacion = textObservacion.getText();
+        
+        cotizacioncrear.crear_cotizacion(IdEmpresa, Proyecto, FechaMontaje, FechaActividad, Ciudad, Pago, FechaElaboracion, Cedula, Observacion);
+        limpiar();
+    }//GEN-LAST:event_botomCrearCotizacionActionPerformed
+
+    private void botomCrearCotizacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomCrearCotizacion1ActionPerformed
+        // TODO add your handling code here:
+        
+        String Proyecto = textProyecto.getText();
+        String FechaMontaje = textFechaMontaje.getText();
+        String FechaActividad = textFechaActividad.getText();
+        String Ciudad = textCiudad.getText();
+        String Pago = textPago.getText();
+        String FechaElaboracion = textFechaElaboracion.getText();
+        String Observacion = textObservacion.getText();
+        String IdCotizacion = textIdCotizacion.getText();
+        
+        cotizacionmodificar.modificarCotizacionBD(Proyecto, FechaMontaje, FechaActividad, Ciudad, Pago, FechaElaboracion, Observacion, IdCotizacion, IdCotizacion);
+        limpiar();
+    }//GEN-LAST:event_botomCrearCotizacion1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

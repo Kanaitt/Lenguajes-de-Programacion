@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8a777027-4b7a-431c-a5da-77b73aa319e5">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="42"/>
+	<queryString>
+		<![CDATA[SELECT
+     cotizacion.`IdCotizacion` AS cotizacion_IdCotizacion,
+     cotizacion.`IdEmpresa` AS cotizacion_IdEmpresa,
+     cotizacion.`Proyecto` AS cotizacion_Proyecto,
+     cotizacion.`FechaMontaje` AS cotizacion_FechaMontaje,
+     cotizacion.`FechaActividad` AS cotizacion_FechaActividad,
+     cotizacion.`Ciudad` AS cotizacion_Ciudad,
+     cotizacion.`Pago` AS cotizacion_Pago,
+     cotizacion.`FechaElaboracion` AS cotizacion_FechaElaboracion,
+     cotizacion.`Cedula` AS cotizacion_Cedula,
+     cotizacion.`Observacion` AS cotizacion_Observacion,
+     usuarios.`Nombre` AS usuarios_Nombre,
+     clientes.`Empresa` AS clientes_Empresa,
+     clientes.`Representante` AS clientes_Representante,
+     clientes.`Celular` AS clientes_Celular
+FROM
+     `usuarios` usuarios INNER JOIN `cotizacion` cotizacion ON usuarios.`Cedula` = cotizacion.`Cedula`
+     INNER JOIN `clientes` clientes ON cotizacion.`IdEmpresa` = clientes.`IdEmpresa`]]>
+	</queryString>
+	<field name="cotizacion_IdCotizacion" class="java.lang.Integer"/>
+	<field name="cotizacion_IdEmpresa" class="java.lang.Integer"/>
+	<field name="cotizacion_Proyecto" class="java.lang.String"/>
+	<field name="cotizacion_FechaMontaje" class="java.sql.Date"/>
+	<field name="cotizacion_FechaActividad" class="java.sql.Date"/>
+	<field name="cotizacion_Ciudad" class="java.lang.String"/>
+	<field name="cotizacion_Pago" class="java.lang.String"/>
+	<field name="cotizacion_FechaElaboracion" class="java.sql.Date"/>
+	<field name="cotizacion_Cedula" class="java.lang.String"/>
+	<field name="cotizacion_Observacion" class="java.lang.String"/>
+	<field name="usuarios_Nombre" class="java.lang.String"/>
+	<field name="clientes_Empresa" class="java.lang.String"/>
+	<field name="clientes_Representante" class="java.lang.String"/>
+	<field name="clientes_Celular" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="18" y="0" width="64" height="79" uuid="46f00846-6f68-4837-b499-2a4f5d03238e"/>
+				<imageExpression><![CDATA["C:\\Users\\prodr\\Documents\\NetBeansProjects\\GitHub\\Lenguajes-de-Programacion\\Proyecto\\src\\recursos\\Iconos\\Logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="123" y="16" width="355" height="46" uuid="9784c051-1fd6-4108-98dd-c733371c5021"/>
+				<textElement>
+					<font fontName="Arial" size="36"/>
+				</textElement>
+				<text><![CDATA[Reporte de cotización]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="480" y="0" width="74" height="20" uuid="3d557c81-f348-4a4b-9374-123cb17c62d5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="18" height="20" uuid="d9713783-5395-4004-a09e-ec8df494dcb2"/>
+				<text><![CDATA[Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="0" width="64" height="20" uuid="8b0295f1-1b5d-452a-8ea4-099c999d1974"/>
+				<text><![CDATA[Id Empresa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="0" width="50" height="20" uuid="e2e9e85a-c684-46cb-b6ab-92476a62880a"/>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="77" height="20" uuid="2f54002f-785a-4242-b51b-060c33df772a"/>
+				<text><![CDATA[Representante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="0" width="44" height="20" uuid="1965f845-aad2-4d86-b48c-2fecceea9446"/>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="0" width="24" height="20" uuid="f2f2d511-863c-4f70-8421-046216b1cc8b"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_IdCotizacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="24" height="20" uuid="9e5842ba-ade7-41ae-963a-6d12a3e87aae"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_IdEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="0" width="92" height="20" uuid="2f53d64d-bee7-49af-ae74-42f5639712ac"/>
+				<textFieldExpression><![CDATA[$F{clientes_Empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="0" width="91" height="20" uuid="5d71db97-15c6-41f3-b6d7-0307ec650bcc"/>
+				<textFieldExpression><![CDATA[$F{clientes_Representante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="0" width="76" height="20" uuid="33b10db0-a8a1-4941-ad61-aa798618a1b4"/>
+				<textFieldExpression><![CDATA[$F{clientes_Celular}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="45" height="20" uuid="e061b1e0-7687-4c07-9d7a-220fe59b73f7"/>
+				<text><![CDATA[Proyecto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="20" width="100" height="20" uuid="f3afea02-8b60-4235-ab0f-bb0f3cfc8fd9"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_Proyecto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="145" y="20" width="87" height="20" uuid="749aaf05-cbc6-4c02-9fdd-0639ca0de6cd"/>
+				<text><![CDATA[Fecha de Montaje:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="232" y="20" width="45" height="20" uuid="5fdc2484-aecb-4c64-9e8f-5e7f5d15f03f"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_FechaMontaje}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="20" width="90" height="20" uuid="6fbbbd95-3628-4bcd-9e4d-1bd52aab1bc4"/>
+				<text><![CDATA[Fecha de Actividad:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="367" y="20" width="45" height="20" uuid="361a2616-7ba2-4e34-aa06-a3c10d8a8e16"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_FechaActividad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="412" y="20" width="37" height="20" uuid="dba7bce1-0b64-4510-95b3-24d8a426dbe2"/>
+				<text><![CDATA[Ciudad:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="449" y="20" width="100" height="20" uuid="44c3e8e3-a8ba-4919-a24d-f180271e634f"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_Ciudad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20" uuid="8a3a502a-0045-4b71-99b9-3d7dfa42f61a"/>
+				<text><![CDATA[Elaborado por]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="60" width="100" height="20" uuid="feb0c67c-ba08-4133-abcc-6bf60aab3140"/>
+				<textFieldExpression><![CDATA[$F{usuarios_Nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="60" width="50" height="20" uuid="5601896c-0aae-4860-8c71-b7943d4c4b87"/>
+				<text><![CDATA[Cedula Nº:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="60" width="82" height="20" uuid="34e8c75b-9e30-44e1-a6d9-df2a5a1c0c8a"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_Cedula}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="40" width="73" height="20" uuid="ef472125-6561-4e39-bf89-473dec8834fe"/>
+				<text><![CDATA[Forma de pago]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="232" y="60" width="93" height="20" uuid="22acb09b-2f10-4ac9-b91d-effcadde859a"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_Pago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="40" width="100" height="20" uuid="52d140d8-ed96-46da-a4a4-20a5545ce683"/>
+				<text><![CDATA[Observacion]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="325" y="60" width="229" height="40" uuid="1e8bb66f-520c-4e6c-9a3f-1b4a1e04407e"/>
+				<textFieldExpression><![CDATA[$F{cotizacion_Observacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="34" width="80" height="20" uuid="2660f44d-05ba-4fbb-8463-075d0b25f202"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="34" width="40" height="20" uuid="54b77681-165b-4e03-b530-772141fca771"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
