@@ -3,6 +3,9 @@
 	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="42"/>
+	<parameter name="Id_cotizacion" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      cotizacion.`IdCotizacion` AS cotizacion_IdCotizacion,
@@ -21,7 +24,8 @@
      clientes.`Celular` AS clientes_Celular
 FROM
      `usuarios` usuarios INNER JOIN `cotizacion` cotizacion ON usuarios.`Cedula` = cotizacion.`Cedula`
-     INNER JOIN `clientes` clientes ON cotizacion.`IdEmpresa` = clientes.`IdEmpresa`]]>
+     INNER JOIN `clientes` clientes ON cotizacion.`IdEmpresa` = clientes.`IdEmpresa`
+WHERE cotizacion.`IdCotizacion`=$P!{Id_cotizacion}]]>
 	</queryString>
 	<field name="cotizacion_IdCotizacion" class="java.lang.Integer"/>
 	<field name="cotizacion_IdEmpresa" class="java.lang.Integer"/>

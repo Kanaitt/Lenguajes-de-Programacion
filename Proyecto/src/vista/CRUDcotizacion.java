@@ -8,8 +8,19 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class CRUDcotizacion extends javax.swing.JPanel {
 
@@ -153,7 +164,8 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         tableCotizacion = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         textObservacion = new javax.swing.JTextArea();
-        botomCrearCotizacion1 = new javax.swing.JToggleButton();
+        botomGenerarCotizacion = new javax.swing.JToggleButton();
+        botomModificarCotizacion = new javax.swing.JToggleButton();
         botomCrearCotizacion = new javax.swing.JToggleButton();
         observacionLabel = new javax.swing.JLabel();
         cedulaUsuairoLabel = new javax.swing.JLabel();
@@ -230,13 +242,21 @@ public class CRUDcotizacion extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 460, 80));
 
-        botomCrearCotizacion1.setText("MODIFICAR COTIZACIÓN");
-        botomCrearCotizacion1.addActionListener(new java.awt.event.ActionListener() {
+        botomGenerarCotizacion.setText("GENERAR COTIZACIÓN");
+        botomGenerarCotizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botomCrearCotizacion1ActionPerformed(evt);
+                botomGenerarCotizacionActionPerformed(evt);
             }
         });
-        add(botomCrearCotizacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
+        add(botomGenerarCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 620, -1, -1));
+
+        botomModificarCotizacion.setText("MODIFICAR COTIZACIÓN");
+        botomModificarCotizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botomModificarCotizacionActionPerformed(evt);
+            }
+        });
+        add(botomModificarCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
         botomCrearCotizacion.setText("CREAR COTIZACIÓN");
         botomCrearCotizacion.addActionListener(new java.awt.event.ActionListener() {
@@ -425,7 +445,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         limpiar();
     }//GEN-LAST:event_botomCrearCotizacionActionPerformed
 
-    private void botomCrearCotizacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomCrearCotizacion1ActionPerformed
+    private void botomModificarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomModificarCotizacionActionPerformed
         // TODO add your handling code here:
         
         String Proyecto = textProyecto.getText();
@@ -439,14 +459,39 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         
         cotizacionmodificar.modificarCotizacionBD(Proyecto, FechaMontaje, FechaActividad, Ciudad, Pago, FechaElaboracion, Observacion, IdCotizacion, IdCotizacion);
         limpiar();
-    }//GEN-LAST:event_botomCrearCotizacion1ActionPerformed
+    }//GEN-LAST:event_botomModificarCotizacionActionPerformed
+
+    private void botomGenerarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomGenerarCotizacionActionPerformed
+        try {
+            // TODO add your handling code here:
+            JasperReport reporte = null;
+            String path ="src\\reportes\\Cotizacion.jasper";
+            
+            Map parametro = new HashMap();
+            parametro.put("Id_cotizacion", 1);
+            
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro,conector);
+            
+            JasperViewer view = new JasperViewer(jprint, false);
+            
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(CRUDcotizacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_botomGenerarCotizacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM1;
     private javax.swing.JLabel LSE;
     private javax.swing.JToggleButton botomCrearCotizacion;
-    private javax.swing.JToggleButton botomCrearCotizacion1;
+    private javax.swing.JToggleButton botomGenerarCotizacion;
+    private javax.swing.JToggleButton botomModificarCotizacion;
     private javax.swing.JLabel cedulaUsuairoLabel;
     private javax.swing.JLabel celularLabel;
     private javax.swing.JLabel ciudadLabel;
