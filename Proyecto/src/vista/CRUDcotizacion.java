@@ -462,13 +462,15 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }//GEN-LAST:event_botomModificarCotizacionActionPerformed
 
     private void botomGenerarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomGenerarCotizacionActionPerformed
+        
+        String IdCotizacion = textIdCotizacion.getText();
         try {
             // TODO add your handling code here:
             JasperReport reporte = null;
             String path ="src\\reportes\\Cotizacion.jasper";
             
             Map parametro = new HashMap();
-            parametro.put("Id_cotizacion", 1);
+            parametro.put("Id_cotizacion", IdCotizacion);
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
@@ -481,6 +483,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
             view.setVisible(true);
             
         } catch (JRException ex) {
+            System.out.println("Error en la base de datos2");
             Logger.getLogger(CRUDcotizacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_botomGenerarCotizacionActionPerformed
