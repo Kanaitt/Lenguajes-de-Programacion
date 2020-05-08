@@ -1,30 +1,30 @@
-
 package com.startm.Vista;
 
 import com.startm.Modelo.Persona;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    
+
     //RELACIONES
     public Principal principal;
     public Scanner lector;
-    
+
     //CONSTRUCTORA
-    public Menu(Principal principal){
-        this.principal=principal;
+    public Menu(Principal principal) {
+        this.principal = principal;
         this.lector = new Scanner(System.in);
     }
-    
-    public void mostrarMenuPrincipal (){
+
+    public void mostrarMenuPrincipal() {
         int opcion = -1;
-        do{
+        do {
             System.out.println("Bienvenido al colegio San Pedro Claver IED");
             System.out.println("1. Gestion de personas");
             System.out.println("2. Gestion de eventos");
             System.out.println("3. Salir");
             opcion = lector.nextInt();
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     mostrarSubMenuClientes();
                     break;
@@ -32,19 +32,19 @@ public class Menu {
                     //mostrarSubMenuEventos(); Para un Futuro
                     break;
                 case 3:
-                    opcion=0;
+                    opcion = 0;
                     System.out.println("Gracias por utilizar el programa");
                     break;
                 default:
                     System.out.println("Opcion no valida");
-                            
+
             }
-        }while (opcion != 0);
+        } while (opcion != 0);
     }
-    
-    public void mostrarSubMenuClientes(){
+
+    public void mostrarSubMenuClientes() {
         int opcion = -1;
-        do{
+        do {
             System.out.println("MODULO 1. GESTION DE PERSONAS");
             System.out.println("1. Registrar estudiantes");
             System.out.println("2. Listar estudiantes");
@@ -53,17 +53,17 @@ public class Menu {
             System.out.println("5. Eliminar estudiantes");
             System.out.println("6. Regresar al menu principal");
             opcion = lector.nextInt();
-            
-            switch (opcion){
+
+            switch (opcion) {
                 case 1:
                     registrarEstudiantes();
                     break;
                 case 2:
-                    //listarEstudiantes();
+                    listarEstudiantes();
                     break;
                 case 3:
-                    //buscarEstuiantes();
-                    break;  
+                    buscarEstudiantes();
+                    break;
                 case 4:
                     //modificarEstudiantes();
                     break;
@@ -71,40 +71,55 @@ public class Menu {
                     //eliminarEstudiantes();
                     break;
                 case 6:
-                    opcion =0;
+                    opcion = 0;
                     System.out.println("Regresando al menu principal...");
                     break;
                 default:
                     System.out.println("Opcion no valida");
                     break;
             }
-        } while (opcion != 0); 
-        
+        } while (opcion != 0);
+
     }
-    
-    public void registrarEstudiantes(){
+
+    public void registrarEstudiantes() {
         Persona estudiante = new Persona();
-        
+
         System.out.println("Digite Cedula");
         estudiante.setCedula(lector.nextInt());
-        
+
         System.out.println("Digite el Nombre");
         estudiante.setNombres(lector.next());
-        
+
         System.out.println("Digite el Apellido");
         estudiante.setApellidos(lector.next());
-        
+
         System.out.println("Digite la Edad");
         estudiante.setEdad(lector.nextInt());
-        
+
         //Conectar con la logica
-        
-        if (principal.getLogica().registrarEstudiante(estudiante)){
+        if (principal.getLogica().registrarEstudiante(estudiante)) {
             System.out.println("Estudiante Registrado con exito");
-        }else{
+        } else {
             System.out.println("Estudiante no se registro");
         }
-        
+
     }
+
+    public void listarEstudiantes() {
+        //Logica de como mostrar
+        List<Persona> estudiante = principal.getLogica().listarestudiante();
+        System.out.println("Los estudiantes registrados son: ");
+        for (int i = 0; i < estudiante.size(); i++) {
+            System.out.println(estudiante.get(i).toString());
+        }
+    }
+
+    public void buscarEstudiantes() {
+        
+        boolean estudiante = principal.getLogica().buscarestudiantes();
+        System.out.println("El estudiante es : \n"+ estudiante);
+        
+        }
     
 }
