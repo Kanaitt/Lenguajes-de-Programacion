@@ -65,10 +65,10 @@ public class Menu {
                     buscarEstudiantes();
                     break;
                 case 4:
-                    //modificarEstudiantes();
+                    modificarEstudiantes();
                     break;
                 case 5:
-                    //eliminarEstudiantes();
+                    eliminarEstudiantes();
                     break;
                 case 6:
                     opcion = 0;
@@ -116,10 +116,14 @@ public class Menu {
     }
 
     public void buscarEstudiantes() {
-        
-        boolean estudiante = principal.getLogica().buscarestudiantes();
-        System.out.println("El estudiante es : \n"+ estudiante);
-        
+        principal.getLogica().buscarestudiantes();
         }
     
+    public void modificarEstudiantes(){
+        principal.getLogica().modificarEstudiante();
+    }
+    
+    public void eliminarEstudiantes(){
+        principal.getLogica().borrarEstudiante();
+    }
 }
