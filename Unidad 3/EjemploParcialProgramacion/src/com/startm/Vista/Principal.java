@@ -1,8 +1,6 @@
 package com.startm.Vista;
 
 import com.startm.Controlador.LogicaPersona;
-import java.util.Scanner;
-
 
 public class Principal {
     
@@ -29,6 +27,7 @@ public class Principal {
         //Saltos para movernos entre clases
         principal.getMenu().mostrarMenuPrincipal();
         
+        //Utilizado para probar un DEBUG
         /*Scanner lec = new Scanner(System.in);
         int num1 = lec.nextInt();
         int num2 = lec.nextInt();
