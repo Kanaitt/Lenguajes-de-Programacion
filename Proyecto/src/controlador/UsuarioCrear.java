@@ -46,7 +46,7 @@ public class UsuarioCrear {
                     usuarios.setCargo(resultados.getString(4));
                     usuarios.setTelefono(resultados.getString(5));
                     usuarios.setUsuario(resultados.getString(6));
-                    usuarios.setContraseña(resultados.getString(7));
+                    usuarios.setContrasenna(resultados.getString(7));
                     
                     usuarios_creados.add(usuarios);
                     

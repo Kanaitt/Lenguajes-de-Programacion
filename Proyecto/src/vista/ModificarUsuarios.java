@@ -39,7 +39,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         cargoText.setText("");
         telefonoText.setText("");
         usuarioText.setText("");
-        contraseñaText.setText("");
+        contrasennaText.setText("");
     }
 
 
@@ -87,14 +87,14 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         borrarButton = new javax.swing.JButton();
         modificarButton = new javax.swing.JButton();
         usuarioLabel = new javax.swing.JLabel();
-        contraseñaLabel = new javax.swing.JLabel();
+        contrasennaLabel = new javax.swing.JLabel();
         telefonoLabel = new javax.swing.JLabel();
         cargoLabel = new javax.swing.JLabel();
         cedulaLabel = new javax.swing.JLabel();
         correoLabel = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         usuarioText = new javax.swing.JTextField();
-        contraseñaText = new javax.swing.JTextField();
+        contrasennaText = new javax.swing.JTextField();
         telefonoText = new javax.swing.JTextField();
         cargoText = new javax.swing.JTextField();
         cedulaText = new javax.swing.JTextField();
@@ -131,10 +131,10 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         usuarioLabel.setText("Usuario");
         add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 155, -1, -1));
 
-        contraseñaLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        contraseñaLabel.setForeground(new java.awt.Color(0, 0, 0));
-        contraseñaLabel.setText("Contraseña");
-        add(contraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 195, -1, -1));
+        contrasennaLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        contrasennaLabel.setForeground(new java.awt.Color(0, 0, 0));
+        contrasennaLabel.setText("Contraseña");
+        add(contrasennaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 195, -1, -1));
 
         telefonoLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         telefonoLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,7 +161,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         nombreLabel.setText("Nombre");
         add(nombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 115, -1, -1));
         add(usuarioText, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 150, 30));
-        add(contraseñaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 150, 30));
+        add(contrasennaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 150, 30));
         add(telefonoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 150, 30));
         add(cargoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 150, 30));
         add(cedulaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 150, 30));
@@ -246,7 +246,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         String position = cargoText.getText();
         String cell = telefonoText.getText();
         String user = usuarioText.getText();
-        String pass = contraseñaText.getText();
+        String pass = contrasennaText.getText();
         
         modificar_usuario.modificarUsuariosBD(name, email, cc, position, cell, user, pass);
         limpiar();
@@ -262,7 +262,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         cargoText.setText(tablaDatos.getValueAt(seleccion, 3).toString());
         telefonoText.setText(tablaDatos.getValueAt(seleccion, 4).toString());
         usuarioText.setText(tablaDatos.getValueAt(seleccion, 5).toString());
-        contraseñaText.setText(tablaDatos.getValueAt(seleccion, 6).toString());
+        contrasennaText.setText(tablaDatos.getValueAt(seleccion, 6).toString());
         filas=seleccion;
     }//GEN-LAST:event_tablaDatosMouseClicked
 
@@ -274,7 +274,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         String position = cargoText.getText();
         String cell = telefonoText.getText();
         String user = usuarioText.getText();
-        String pass = contraseñaText.getText();
+        String pass = contrasennaText.getText();
         
         borrar_usuario.borrarUsuariosBD(name, email, cc, position, cell, user, pass);
         
@@ -290,8 +290,8 @@ public class ModificarUsuarios extends javax.swing.JPanel {
     private javax.swing.JTextField cargoText;
     private javax.swing.JLabel cedulaLabel;
     private javax.swing.JTextField cedulaText;
-    private javax.swing.JLabel contraseñaLabel;
-    private javax.swing.JTextField contraseñaText;
+    private javax.swing.JLabel contrasennaLabel;
+    private javax.swing.JTextField contrasennaText;
     private javax.swing.JLabel correoLabel;
     private javax.swing.JTextField correoText;
     private javax.swing.JLabel fondo;

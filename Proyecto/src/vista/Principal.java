@@ -16,7 +16,7 @@ public final class Principal extends javax.swing.JFrame {
     private Usuarios usuarios;
     private CrearUsuarios crearusuarios;
     private ModificarUsuarios modificarusuarios;
-    private CambioContraseña cambioContraseña;
+    private CambioContrasenna cambioContrasenna;
     private CRUDclientes crudclientes;
     private CRUDcotizacion crudcotizacion;
 
@@ -149,9 +149,9 @@ public final class Principal extends javax.swing.JFrame {
     
     protected void irACambioContrasenna(JPanel jPanel) {        
         remove(jPanel);
-        cambioContraseña = new CambioContraseña(this);
-        cambioContraseña.setVisible(true);
-        add(cambioContraseña);
+        cambioContrasenna = new CambioContrasenna(this);
+        cambioContrasenna.setVisible(true);
+        add(cambioContrasenna);
         pack();
         setLocationRelativeTo(null); 
     }

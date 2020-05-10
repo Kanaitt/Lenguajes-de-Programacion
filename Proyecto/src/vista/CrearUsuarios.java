@@ -26,9 +26,9 @@ public class CrearUsuarios extends javax.swing.JPanel {
     private void initComponents() {
 
         cancelar = new javax.swing.JToggleButton();
-        añadir_usuario = new javax.swing.JToggleButton();
-        contraseña_ingresar = new javax.swing.JTextField();
-        contraseña = new javax.swing.JLabel();
+        annadir_usuario = new javax.swing.JToggleButton();
+        contrasenna_ingresar = new javax.swing.JTextField();
+        contrasenna = new javax.swing.JLabel();
         usuario_ingresar = new javax.swing.JTextField();
         usuario = new javax.swing.JLabel();
         telefono_ingresar = new javax.swing.JTextField();
@@ -61,24 +61,24 @@ public class CrearUsuarios extends javax.swing.JPanel {
         });
         add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 380, -1, -1));
 
-        añadir_usuario.setBackground(new java.awt.Color(204, 255, 255));
-        añadir_usuario.setFont(new java.awt.Font("Gadugi", 1, 30)); // NOI18N
-        añadir_usuario.setText("AÑADIR USUARIO");
-        añadir_usuario.setToolTipText("va a ingresar a un usuario");
-        añadir_usuario.addActionListener(new java.awt.event.ActionListener() {
+        annadir_usuario.setBackground(new java.awt.Color(204, 255, 255));
+        annadir_usuario.setFont(new java.awt.Font("Gadugi", 1, 30)); // NOI18N
+        annadir_usuario.setText("AÑADIR USUARIO");
+        annadir_usuario.setToolTipText("va a ingresar a un usuario");
+        annadir_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añadir_usuarioActionPerformed(evt);
+                annadir_usuarioActionPerformed(evt);
             }
         });
-        add(añadir_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 300, -1, -1));
+        add(annadir_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 300, -1, -1));
 
-        contraseña_ingresar.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
-        add(contraseña_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 250, 35));
+        contrasenna_ingresar.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        add(contrasenna_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 530, 250, 35));
 
-        contraseña.setFont(new java.awt.Font("Gadugi", 1, 30)); // NOI18N
-        contraseña.setForeground(new java.awt.Color(0, 0, 0));
-        contraseña.setText("Contraseña:");
-        add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 530, -1, -1));
+        contrasenna.setFont(new java.awt.Font("Gadugi", 1, 30)); // NOI18N
+        contrasenna.setForeground(new java.awt.Color(0, 0, 0));
+        contrasenna.setText("Contraseña:");
+        add(contrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 530, -1, -1));
 
         usuario_ingresar.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         add(usuario_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 250, 35));
@@ -169,19 +169,19 @@ public class CrearUsuarios extends javax.swing.JPanel {
         regresarausuarios();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void añadir_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadir_usuarioActionPerformed
+    private void annadir_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annadir_usuarioActionPerformed
         String name = nombre_ingresar.getText();
         String email = correo_ingresar.getText();
         String cc = cedula_ingresar.getText();
         String position = cargo_ingresar.getText();
         String cell = telefono_ingresar.getText();
         String user = usuario_ingresar.getText();
-        String pass = contraseña_ingresar.getText();
+        String pass = contrasenna_ingresar.getText();
        
         
         crear_usuario(name, email, cc, position, cell, user, pass);
         
-    }//GEN-LAST:event_añadir_usuarioActionPerformed
+    }//GEN-LAST:event_annadir_usuarioActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         regresarausuarios();
@@ -191,14 +191,14 @@ public class CrearUsuarios extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM1;
     private javax.swing.JLabel LSE;
-    private javax.swing.JToggleButton añadir_usuario;
+    private javax.swing.JToggleButton annadir_usuario;
     private javax.swing.JToggleButton cancelar;
     private javax.swing.JLabel cargo;
     private javax.swing.JTextField cargo_ingresar;
     private javax.swing.JLabel cedula;
     private javax.swing.JTextField cedula_ingresar;
-    private javax.swing.JLabel contraseña;
-    private javax.swing.JTextField contraseña_ingresar;
+    private javax.swing.JLabel contrasenna;
+    private javax.swing.JTextField contrasenna_ingresar;
     private javax.swing.JLabel correo;
     private javax.swing.JTextField correo_ingresar;
     private javax.swing.JLabel crearusuarios;

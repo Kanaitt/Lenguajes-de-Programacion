@@ -46,8 +46,4 @@ public class Conexion {
         }
         sentencia = null;
     }
-        
-   /*public static void main(String[] args) {
-        getConnection();
-    }*/
 }

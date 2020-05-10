@@ -4,13 +4,13 @@ package vista;
 import javax.swing.JOptionPane;
 import controlador.ValidacionContrasenna;
 
-public class CambioContraseña extends javax.swing.JPanel {
+public class CambioContrasenna extends javax.swing.JPanel {
 
     private final Principal principal;
     
     ValidacionContrasenna validacionContrasenna = new ValidacionContrasenna();
 
-    public CambioContraseña(Principal principal) {
+    public CambioContrasenna(Principal principal) {
         this.principal=principal;
         initComponents();
 
@@ -27,7 +27,7 @@ public class CambioContraseña extends javax.swing.JPanel {
         cedulaConfirmar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         ingresarBotom = new javax.swing.JButton();
-        cambioContraseña = new javax.swing.JTextField();
+        cambioContrasenna = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         salir = new javax.swing.JLabel();
@@ -49,7 +49,7 @@ public class CambioContraseña extends javax.swing.JPanel {
             }
         });
         add(ingresarBotom, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
-        add(cambioContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 240, 40));
+        add(cambioContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 240, 40));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("INGRESE SU CONTRASEÑA");
@@ -85,7 +85,7 @@ public class CambioContraseña extends javax.swing.JPanel {
 
     private void ingresarBotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBotomActionPerformed
         // TODO add your handling code here:
-        String contrasenna = cambioContraseña.getText();
+        String contrasenna = cambioContrasenna.getText();
         String cedula = cedulaConfirmar.getText();
         
         cambiandoContrasenna(contrasenna,cedula);
@@ -94,7 +94,7 @@ public class CambioContraseña extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Icono_StarM1;
-    private javax.swing.JTextField cambioContraseña;
+    private javax.swing.JTextField cambioContrasenna;
     private javax.swing.JTextField cedulaConfirmar;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton ingresarBotom;
@@ -109,7 +109,7 @@ public class CambioContraseña extends javax.swing.JPanel {
         if (contrasenna.equals("") || cedula.equals("")) {
             JOptionPane.showMessageDialog(null, "no puede dejar campos vacios");
         }else{
-            modelo.Usuarios datos = validacionContrasenna.cambiaContraseñaBD(contrasenna, cedula);
+            modelo.Usuarios datos = validacionContrasenna.cambiaContrasennaBD(contrasenna, cedula);
             
             if (datos == null){
                 JOptionPane.showMessageDialog(null, "Cambio de contraseña exitoso");

@@ -22,7 +22,7 @@ public class ValidacionContrasenna {
         return Lista_de_usuarios;
     }
     
-    public Usuarios cambiaContraseñaBD(String contrasenna, String cedula){
+    public Usuarios cambiaContrasennaBD(String contrasenna, String cedula){
         try {
             inicio_usuario = Conexion.getConnection();
             sentencias = inicio_usuario.prepareStatement("UPDATE Usuarios SET Contraseña = ? WHERE Cedula = ?");
@@ -39,7 +39,7 @@ public class ValidacionContrasenna {
                     usuarios.setCargo(resultados.getString(4));
                     usuarios.setTelefono(resultados.getString(5));
                     usuarios.setUsuario(resultados.getString(6));
-                    usuarios.setContraseña(resultados.getString(7));
+                    usuarios.setContrasenna(resultados.getString(7));
                     
                     Lista_de_usuarios.add(usuarios);
                     

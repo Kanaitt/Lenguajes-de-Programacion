@@ -9,17 +9,17 @@ public class Usuarios {
     private String Cargo;
     private String Telefono;
     private String Usuario;
-    private String Contraseña;
+    private String Contrasenna;
     
     public Usuarios (String Nombre, String Correo, String Cedula,
-            String Cargo, String Telefono, String Usuario, String Contraseña){
+            String Cargo, String Telefono, String Usuario, String Contrasenna){
         this.Nombre = Nombre;
         this.Correo = Correo;
         this.Cedula = Cedula;
         this.Cargo = Cargo;
         this.Telefono = Telefono;
         this.Usuario = Usuario;
-        this.Contraseña = Contraseña;
+        this.Contrasenna = Contrasenna;
     }
     
     public Usuarios(){
@@ -74,12 +74,12 @@ public class Usuarios {
         this.Usuario = Usuario;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getContrasenna() {
+        return Contrasenna;
     }
 
-    public void setContraseña(String Contraseña) {
-        this.Contraseña = Contraseña;
+    public void setContrasenna(String Contrasenna) {
+        this.Contrasenna = Contrasenna;
     }
 
     @Override
@@ -87,6 +87,6 @@ public class Usuarios {
         return "Usuarios{ "+",Nombre = "+Nombre+
                 ", Correo = "+Correo+", Cedula = "+Cedula+", Cargo = "+Cargo+
                 ",Telefono = "+Telefono+", Usuario = "+Usuario+
-                ", Contraseña = "+Contraseña+" }";
+                ", Contraseña = "+Contrasenna+" }";
     }
 }
