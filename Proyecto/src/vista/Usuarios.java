@@ -2,6 +2,7 @@
 package vista;
 
 public class Usuarios extends javax.swing.JPanel {
+    //llamada del metodo principal
     private Principal principal;
     /**
      * Creates new form Usuarios
@@ -90,12 +91,12 @@ public class Usuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al Inicio
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        // Tllamada de metodo para regresar al Home
         regresaraHome();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -104,11 +105,12 @@ public class Usuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_crearUsuariosMouseMoved
 
     private void crearUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearUsuariosMouseClicked
-        // TODO add your handling code here:
+        // Llamada de metodo para ingresar a creacion de usuario
         pasaracrearusuario();
     }//GEN-LAST:event_crearUsuariosMouseClicked
 
     private void modificarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarUsuariosMouseClicked
+        // Llamada de metodo para ingresar a modificar un usuario
         pasaramodificarusuario();
     }//GEN-LAST:event_modificarUsuariosMouseClicked
 

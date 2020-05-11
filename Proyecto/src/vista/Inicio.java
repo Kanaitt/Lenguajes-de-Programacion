@@ -1,21 +1,19 @@
 package vista;
-
+//Importaciones de los demas paquetes
 import controlador.Validacion;
 import modelo.Usuarios;
-
+//Importacion para la muestra de mensajes por paneles
 import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JPanel {
-
+    //Llamada de metodos de los otros paquetes
     private final Principal principal;
     Validacion validar_usuario = new Validacion();
-
+    //Metodo Principal
     public Inicio(Principal principal) {
         this.principal = principal;
         initComponents();
-
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -88,12 +86,11 @@ public class Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_entradapassword_inicioActionPerformed
 
     private void iniciarbotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarbotomActionPerformed
+        //Captura de datos para su validacion
         String user = entradausuario_inicio.getText();
         String pass = entradapassword_inicio.getText();
 
         iniciarSesion(user, pass);
-
-
     }//GEN-LAST:event_iniciarbotomActionPerformed
 
     private void entradausuario_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entradausuario_inicioActionPerformed
@@ -110,35 +107,30 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JLabel password_inicio;
     private javax.swing.JLabel usuario_inicio;
     // End of variables declaration//GEN-END:variables
-
+    //metodo para validar los datos ingresados e iniciar secion.
     private void iniciarSesion(String user, String pass) {
         if (user.equals("") || pass.equals("")) {
-
             JOptionPane.showMessageDialog(null, "no puede dejar campos vacios");
         } else {
-            Usuarios datos = validar_usuario.iniciar_sesion(user, pass);
-
+            Usuarios datos = validar_usuario.iniciar_sesion(user, pass);//validacion de datos
             if (datos != null) {
-
                 if ("123".equals(pass)) {
-                    cambiarContrasennas();
+                    cambiarContrasennas();//ir al metodo para cambiar la contraseña si se cumple la condicion
                 } else {
                     JOptionPane.showMessageDialog(null, "Bienvenido " + user);
-
-                    gestionCliente();
+                    gestionCliente();//pasar al metodo que da acceso a la aplicacion.
                 }
-
             } else {
                 JOptionPane.showMessageDialog(null, "No existe usuario...");
             }
         }
     }
-
+    //metodo para ingresar al programa
     private void gestionCliente() {
         principal.irAHome(this);
 
     }
-
+    //Metodo para el cambio de contraseña
     private void cambiarContrasennas() {
         principal.irACambioContrasenna(this);
 

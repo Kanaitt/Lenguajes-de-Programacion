@@ -1,5 +1,5 @@
 package vista;
-
+//Importar lo necesario para la creacion del Jframe
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
@@ -19,20 +19,22 @@ public final class Principal extends javax.swing.JFrame {
     private CambioContrasenna cambioContrasenna;
     private CRUDclientes crudclientes;
     private CRUDcotizacion crudcotizacion;
-
+    
+    //Metodo principal para crear la interfaz principal
     public Principal() {
         //initComponents();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setName("pricipalJFrame");
-        setTitle("L. S. E. logisitc systems events");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);//linea para que el Jpanel se deje cerrar
+        setName("pricipalJFrame");//nombre del frame
+        setTitle("L. S. E. logisitc systems events"); //titulo del Jpanel
         this.setBounds(0,0,1280,750);//tamaño y ubicacion
-        setResizable(false);
+        setResizable(false);//bloquear el cambio de tamaño de la interfaz
         pack();
-        setIconImage(getIconImage());
-        setLocationRelativeTo(null);
-        iniciar();
+        setIconImage(getIconImage());//llamo la imagen que quedara como icono
+        setLocationRelativeTo(null);//posicion de la interfaz, ubicada en el centro
+        iniciar();//iniciar con ese metodo
     }
     
+    //metodo para obtener el icono directamente de los recursos
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/Iconos/Logo.png"));
         return retValue;
@@ -93,6 +95,7 @@ public final class Principal extends javax.swing.JFrame {
         });
     }
 
+    //Metodos para los diferentes Jpanel que tiene el Jframe
     private void iniciar() {
         inicio = new Inicio(this);
         inicio.setVisible(true);
@@ -173,10 +176,6 @@ public final class Principal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null); 
     }
-
-    
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

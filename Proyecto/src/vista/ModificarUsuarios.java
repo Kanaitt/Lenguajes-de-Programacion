@@ -1,38 +1,44 @@
-
 package vista;
-
+//importacion de las clases de los paquetes que vamos a necesitar
+import modelo.Conexion;
 import controlador.UsuarioModificar;
 import controlador.UsuarioBorrar;
+//importacion de la conexion a la base de datos
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+//Importacion para la creacion de la tabla
 import javax.swing.table.DefaultTableModel;
-import modelo.Conexion;
-
-
 
 public class ModificarUsuarios extends javax.swing.JPanel {
 
+    //llamada del metodo principal
     private final Principal principal;
-    
+    //llamada del metodo de la clase conexion
     Conexion conectar = new Conexion();
     Connection conector = Conexion.getConnection();
-    
+    //Creacion de la tabla de datos
     DefaultTableModel tabla;
     int filas;
-    
+    //llamada de las dos clases que utilizaremos para modificar y borrar a los usuarios
     UsuarioModificar modificar_usuario = new UsuarioModificar();
     UsuarioBorrar borrar_usuario = new UsuarioBorrar();
-    
-    
+
+    /**
+     * Creates new form Usuarios
+     *
+     * @param principal
+     */
     public ModificarUsuarios(Principal principal) {
         this.principal = principal;
         initComponents();
         listar();
-   
+
     }
-        public void limpiar(){
+    //Metodo para limpiar los datos de los Jtext
+
+    public void limpiar() {
         nombreText.setText("");
         correoText.setText("");
         cedulaText.setText("");
@@ -42,8 +48,8 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         contrasennaText.setText("");
     }
 
-
-        void listar() {
+    //Nombramiento de las columnas de la tabla
+    void listar() {
         tabla = new DefaultTableModel();
         tabla.addColumn("NOMBRE");
         tabla.addColumn("CORREO");
@@ -53,24 +59,23 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         tabla.addColumn("USUARIO");
         tabla.addColumn("CONTRASEÑA");
         this.tablaDatos.setModel(tabla);
-        
+        //sentencia para mostrar todos los datos de usuarios
         String mostrarDatos = "SELECT * FROM Usuarios";
-        
+
         String datos[] = new String[7];
-        
-        
+
         try {
             Statement st = conector.createStatement();
             ResultSet rs = st.executeQuery(mostrarDatos);
-            
-            while (rs.next()){
-                datos[0]=rs.getString(1);
-                datos[1]=rs.getString(2);
-                datos[2]=rs.getString(3);
-                datos[3]=rs.getString(4);
-                datos[4]=rs.getString(5);
-                datos[5]=rs.getString(6);
-                datos[6]=rs.getString(7);
+
+            while (rs.next()) {
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
                 tabla.addRow(datos);
             }
             tablaDatos.setModel(tabla);
@@ -79,7 +84,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
             e.printStackTrace(); //imprimir excepciones de java
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -225,12 +230,12 @@ public class ModificarUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        // // llamada de metodo para regresar a Usuarios
         regresarausuarios();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al Inicio
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
@@ -239,7 +244,7 @@ public class ModificarUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_nombreTextActionPerformed
 
     private void modificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarButtonActionPerformed
-        // TODO add your handling code here:
+        // Captura de datos que vamos a modificar
         String name = nombreText.getText();
         String email = correoText.getText();
         String cc = cedulaText.getText();
@@ -247,15 +252,15 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         String cell = telefonoText.getText();
         String user = usuarioText.getText();
         String pass = contrasennaText.getText();
-        
+
         modificar_usuario.modificarUsuariosBD(name, email, cc, position, cell, user, pass);
         limpiar();
     }//GEN-LAST:event_modificarButtonActionPerformed
 
     private void tablaDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosMouseClicked
-        // TODO add your handling code here:
+        //Logica para observar los datos de la tabla en los capos de texto
         int seleccion = tablaDatos.getSelectedRow();
-        
+
         nombreText.setText(tablaDatos.getValueAt(seleccion, 0).toString());
         correoText.setText(tablaDatos.getValueAt(seleccion, 1).toString());
         cedulaText.setText(tablaDatos.getValueAt(seleccion, 2).toString());
@@ -263,11 +268,11 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         telefonoText.setText(tablaDatos.getValueAt(seleccion, 4).toString());
         usuarioText.setText(tablaDatos.getValueAt(seleccion, 5).toString());
         contrasennaText.setText(tablaDatos.getValueAt(seleccion, 6).toString());
-        filas=seleccion;
+        filas = seleccion;
     }//GEN-LAST:event_tablaDatosMouseClicked
 
     private void borrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarButtonActionPerformed
-        // TODO add your handling code here:
+        // Captura de datos para borrar los datos
         String name = nombreText.getText();
         String email = correoText.getText();
         String cc = cedulaText.getText();
@@ -275,9 +280,9 @@ public class ModificarUsuarios extends javax.swing.JPanel {
         String cell = telefonoText.getText();
         String user = usuarioText.getText();
         String pass = contrasennaText.getText();
-        
+
         borrar_usuario.borrarUsuariosBD(name, email, cc, position, cell, user, pass);
-        
+
         limpiar();
     }//GEN-LAST:event_borrarButtonActionPerformed
 
@@ -308,15 +313,13 @@ public class ModificarUsuarios extends javax.swing.JPanel {
     private javax.swing.JTextField usuarioText;
     // End of variables declaration//GEN-END:variables
 
-    private void regresar(){
+    //metodo para regresar al inicio
+    private void regresar() {
         principal.irAInicio(this);
     }
-    
-    private void regresarausuarios(){
+
+    //metodo para regresar a usuarios
+    private void regresarausuarios() {
         principal.irAUsuarios(this);
     }
-    
-   
-    }
-
-
+}

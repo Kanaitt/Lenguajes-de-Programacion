@@ -1,6 +1,7 @@
 
 package vista;
 
+//Importaciones para el buen funcionamiento de los labels colocados
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
@@ -9,9 +10,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Home extends javax.swing.JPanel {
+    //llamada del metodo principal
     private final Principal principal;
     /**
-     * Creates new form Home
+     * Creates new form Usuarios
      * @param principal
      */
     public Home(Principal principal) {
@@ -113,22 +115,22 @@ public class Home extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al inicio
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
     private void logo_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logo_usuariosMouseClicked
-        // TODO add your handling code here:
+        // Llamada de metodo para ingresar a usuario
         ingresarausuarios();
     }//GEN-LAST:event_logo_usuariosMouseClicked
 
     private void logo_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logo_clientesMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para igresar a clientes
         ingresaraclientes();
     }//GEN-LAST:event_logo_clientesMouseClicked
 
     private void whatsappIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_whatsappIconMouseClicked
-        
+        //creacion de metodo para un enlance directo con un soporte en whatsapp
         try {
             if (Desktop.isDesktopSupported()){
                 Desktop desktop = Desktop.getDesktop();
@@ -142,7 +144,7 @@ public class Home extends javax.swing.JPanel {
     }//GEN-LAST:event_whatsappIconMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
+        // Creacion de metodo para ir a una pagina web desde el programa
         try {
             if (Desktop.isDesktopSupported()){
                 Desktop desktop = Desktop.getDesktop();
@@ -157,7 +159,7 @@ public class Home extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void logo_eventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logo_eventosMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para ingresar a las cotizaciones
         ingresarCotizacion();
     }//GEN-LAST:event_logo_eventosMouseClicked
 
@@ -177,19 +179,19 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JLabel whatsappIcon;
     // End of variables declaration//GEN-END:variables
     
-    
+    //metodo para regresar al inicio
     private void regresar() {
         principal.irAInicio(this);
     }
-    
+    //metodo para ingresar al panel de usuarios
     private void ingresarausuarios() {
         principal.irAUsuarios(this);
     }
-    
+    //metodo para ingresar al panel de clientes
     private void ingresaraclientes(){
         principal.irAClientes(this);
     }
-    
+    //metodo para ingresar al panel de cotizacion
     private void ingresarCotizacion(){
         principal.irACotizacion(this);
     }

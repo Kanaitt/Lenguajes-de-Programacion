@@ -1,49 +1,51 @@
-
 package vista;
-
+//importacion de las clases de los paquetes que vamos a necesitar
 import controlador.ClienteCrear;
 import controlador.ClienteModificar;
 import controlador.ClienteBorrar;
+import modelo.Conexion;
+//importacion de la conexion a la base de datos
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+//Importacion para la creacion de la tabla
 import javax.swing.table.DefaultTableModel;
-import modelo.Conexion;
-
 
 public class CRUDclientes extends javax.swing.JPanel {
-    
+
+    //llamada del metodo principal
     private final Principal principal;
-    
+    //llamada de las tres clases que utilizaremos para crear modificar y borrar a los Clientes
     ClienteCrear clientecrear = new ClienteCrear();
     ClienteModificar clientemodificar = new ClienteModificar();
     ClienteBorrar clienteborrar = new ClienteBorrar();
-    
+    //llamada del metodo de la clase conexion
     Conexion conectar = new Conexion();
     Connection conector = Conexion.getConnection();
-    
+    //Creacion de la tabla de datos
     DefaultTableModel tabla;
     int filas;
-    
+
     public CRUDclientes(Principal principal) {
         this.principal = principal;
         initComponents();
         listar();
     }
-    
-    public void limpiar(){
+
+    //Metodo para limpiar los datos de los Jtext
+    public void limpiar() {
         empresaText.setText("");
         correoText.setText("");
         representanteText.setText("");
         cargoText.setText("");
         celularText.setText("");
         direccionText.setText("");
-       
+
     }
 
-
-        void listar() {
+    void listar() {
+        //Nombramiento de las columnas de la tabla        
         tabla = new DefaultTableModel();
         tabla.addColumn("     ID");
         tabla.addColumn("EMPRESA");
@@ -52,27 +54,27 @@ public class CRUDclientes extends javax.swing.JPanel {
         tabla.addColumn("CARGO");
         tabla.addColumn("CELULAR");
         tabla.addColumn("DIRECCION");
-        
+
         this.tableClientes.setModel(tabla);
-        
+        //sentencia para mostrar todos los datos de los clientes
         String mostrarDatos = "SELECT * FROM Clientes";
-        
+
         String datos[] = new String[7];
-        
+
         tableClientes.getColumnModel().getColumn(0).setPreferredWidth(0);//Ancho de columna
-        
+
         try {
             Statement st = conector.createStatement();
             ResultSet rs = st.executeQuery(mostrarDatos);
-            
-            while (rs.next()){
-                datos[0]=rs.getString(1);
-                datos[1]=rs.getString(2);
-                datos[2]=rs.getString(3);
-                datos[3]=rs.getString(4);
-                datos[4]=rs.getString(5);
-                datos[5]=rs.getString(6);
-                datos[6]=rs.getString(7);
+
+            while (rs.next()) {
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
                 tabla.addRow(datos);
             }
             tableClientes.setModel(tabla);
@@ -228,12 +230,12 @@ public class CRUDclientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al Home
         regresaraHome();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al Inicio
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
@@ -242,9 +244,9 @@ public class CRUDclientes extends javax.swing.JPanel {
     }//GEN-LAST:event_representanteTextActionPerformed
 
     private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClientesMouseClicked
-        // TODO add your handling code here:
+        //Logica para observar los datos de la tabla en los capos de texto
         int seleccion = tableClientes.getSelectedRow();
-        
+
         idempresaText.setText(tableClientes.getValueAt(seleccion, 0).toString());
         empresaText.setText(tableClientes.getValueAt(seleccion, 1).toString());
         correoText.setText(tableClientes.getValueAt(seleccion, 2).toString());
@@ -252,25 +254,25 @@ public class CRUDclientes extends javax.swing.JPanel {
         cargoText.setText(tableClientes.getValueAt(seleccion, 4).toString());
         celularText.setText(tableClientes.getValueAt(seleccion, 5).toString());
         direccionText.setText(tableClientes.getValueAt(seleccion, 6).toString());
-        
-        filas=seleccion;
+
+        filas = seleccion;
     }//GEN-LAST:event_tableClientesMouseClicked
 
     private void botomCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomCrearClienteActionPerformed
-        // TODO add your handling code here:
+        //Captura de datos para Crear los datos del cliente
         String empresa = empresaText.getText();
         String correo = correoText.getText();
         String representante = representanteText.getText();
         String cargo = cargoText.getText();
         String celular = celularText.getText();
         String direccion = direccionText.getText();
-        
+
         clientecrear.crear_cliente(empresa, correo, representante, cargo, celular, direccion);
-        
+
     }//GEN-LAST:event_botomCrearClienteActionPerformed
 
     private void botonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarClienteActionPerformed
-        // TODO add your handling code here:
+        //Captura de datos para Modificar los datos del cliente
         String idempresa = idempresaText.getText();
         String empresa = empresaText.getText();
         String correo = correoText.getText();
@@ -278,13 +280,13 @@ public class CRUDclientes extends javax.swing.JPanel {
         String cargo = cargoText.getText();
         String celular = celularText.getText();
         String direccion = direccionText.getText();
-        
+
         clientemodificar.modificarClienteBD(idempresa, empresa, correo, representante, cargo, celular, direccion);
         limpiar();
     }//GEN-LAST:event_botonModificarClienteActionPerformed
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
-        // TODO add your handling code here:
+        //Captura de datos para Borrar los datos del cliente
         String idempresa = idempresaText.getText();
         String empresa = empresaText.getText();
         String correo = correoText.getText();
@@ -292,7 +294,7 @@ public class CRUDclientes extends javax.swing.JPanel {
         String cargo = cargoText.getText();
         String celular = celularText.getText();
         String direccion = direccionText.getText();
-        
+
         clienteborrar.borrarClienteBD(idempresa, empresa, correo, representante, cargo, celular, direccion);
         limpiar();
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
@@ -325,10 +327,11 @@ public class CRUDclientes extends javax.swing.JPanel {
     private javax.swing.JTable tableClientes;
     // End of variables declaration//GEN-END:variables
 
+    //metodo para regresar al inicio
     private void regresar() {
         principal.irAInicio(this);
     }
-    
+    //metodo para regresar a Home
     private void regresaraHome() {
         principal.irAHome(this);
     }

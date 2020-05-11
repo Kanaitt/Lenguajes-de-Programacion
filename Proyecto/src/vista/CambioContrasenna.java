@@ -1,13 +1,15 @@
 
 package vista;
-
+//Importacion para generar mensajes emergentes
 import javax.swing.JOptionPane;
+//Importacion de la clase que vamos a utilizar
 import controlador.ValidacionContrasenna;
 
 public class CambioContrasenna extends javax.swing.JPanel {
-
-    private final Principal principal;
     
+    //llamada del metodo principal
+    private final Principal principal;
+    //Llamada de la clase que utilizaremos para cambiar la contrasenna
     ValidacionContrasenna validacionContrasenna = new ValidacionContrasenna();
 
     public CambioContrasenna(Principal principal) {
@@ -79,12 +81,12 @@ public class CambioContrasenna extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada del metodo para regresar al Inicio
         gestioninicioe();
     }//GEN-LAST:event_salirMouseClicked
 
     private void ingresarBotomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBotomActionPerformed
-        // TODO add your handling code here:
+        //Captura de datos para la nueva contraseña
         String contrasenna = cambioContrasenna.getText();
         String cedula = cedulaConfirmar.getText();
         
@@ -104,7 +106,7 @@ public class CambioContrasenna extends javax.swing.JPanel {
     private javax.swing.JLabel salir;
     // End of variables declaration//GEN-END:variables
 
-   
+    //Logica para crear una contraseña nuevo
     private void cambiandoContrasenna(String contrasenna, String cedula){
         if (contrasenna.equals("") || cedula.equals("")) {
             JOptionPane.showMessageDialog(null, "no puede dejar campos vacios");
@@ -119,12 +121,9 @@ public class CambioContrasenna extends javax.swing.JPanel {
         }
     
     }
-    
+    //metodo para regresar al inicio
     private void gestioninicioe() {
         principal.irAInicio(this);
-
     }
-    
-    
 }
 

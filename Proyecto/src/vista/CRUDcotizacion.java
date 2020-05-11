@@ -1,20 +1,22 @@
 
 package vista;
-
+//importacion de las clases de los paquetes que vamos a necesitar
 import controlador.CotizacionCrear;
 import controlador.CotizacionModificar;
-
+import modelo.Conexion;
+//importacion de la conexion a la base de datos
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+//Importacion para la creacion de la tabla
+import javax.swing.table.DefaultTableModel;
+//Importacion para crear los reportes de la cotizacion
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import javax.swing.table.DefaultTableModel;
-import modelo.Conexion;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -23,15 +25,16 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class CRUDcotizacion extends javax.swing.JPanel {
-
-    private final Principal principal;
     
+    //llamada del metodo principal
+    private final Principal principal;
+    //llamada de las dos clases que utilizaremos para crear y modificar la cotizacion
     CotizacionCrear cotizacioncrear = new CotizacionCrear();
     CotizacionModificar cotizacionmodificar = new CotizacionModificar();
-    
+    //llamada del metodo de la clase conexion
     Conexion conectar = new Conexion();
     Connection conector = Conexion.getConnection();
-    
+    //Creacion de la tabla de datos
     DefaultTableModel tabla2;
     int filasCliente;
     int filasCotizacion;
@@ -42,7 +45,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
         listarCliente();
         listarCotizacion();
     }
-    
+    //Metodo para limpiar los datos de los Jtext
     public void limpiar(){
         textIdCotizacion.setText("");
         textIdCliente.setText("");
@@ -61,6 +64,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }
     
     void listarCliente() {
+        //Nombramiento de las columnas de la tabla Cliente
         tabla2 = new DefaultTableModel();
         tabla2.addColumn("ID");
         tabla2.addColumn("EMPRESA");
@@ -95,6 +99,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }
     
     void listarCotizacion() {
+        //Nombramiento de las columnas de la tabla Cotizacion   
         tabla2 = new DefaultTableModel();
         tabla2.addColumn("ID");
         tabla2.addColumn("ID EMP");
@@ -387,17 +392,17 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al Inicio
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al Home
         regresaraHome();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void tableClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClienteMouseClicked
-        // TODO add your handling code here:
+        //Logica para observar los datos de la tabla Cliente en los capos de texto
         int seleccion = tableCliente.getSelectedRow();
         
         textIdCliente.setText(tableCliente.getValueAt(seleccion, 0).toString());
@@ -409,7 +414,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }//GEN-LAST:event_tableClienteMouseClicked
 
     private void tableCotizacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCotizacionMouseClicked
-        // TODO add your handling code here:
+        //Logica para observar los datos de la tabla Cotizacion en los capos de texto
        
         int seleccion = tableCotizacion.getSelectedRow();
         
@@ -430,7 +435,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }//GEN-LAST:event_tableCotizacionMouseClicked
 
     private void botomCrearCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomCrearCotizacionActionPerformed
-        // TODO add your handling code here:
+        //Captura de datos para Crear los datos de la Cotizacion
         String IdEmpresa = textIdCliente.getText();
         String Proyecto = textProyecto.getText();
         String FechaMontaje = textFechaMontaje.getText();
@@ -446,7 +451,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }//GEN-LAST:event_botomCrearCotizacionActionPerformed
 
     private void botomModificarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomModificarCotizacionActionPerformed
-        // TODO add your handling code here:
+        //Captura de datos para Modificar los datos de la cotizacion
         
         String Proyecto = textProyecto.getText();
         String FechaMontaje = textFechaMontaje.getText();
@@ -462,7 +467,7 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     }//GEN-LAST:event_botomModificarCotizacionActionPerformed
 
     private void botomGenerarCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botomGenerarCotizacionActionPerformed
-        
+        // Logica para generar el Reporte basado en la cotizacion
         String IdCotizacion = textIdCotizacion.getText();
         try {
             // TODO add your handling code here:
@@ -531,11 +536,11 @@ public class CRUDcotizacion extends javax.swing.JPanel {
     private javax.swing.JTextField textRepresentante;
     // End of variables declaration//GEN-END:variables
 
-
+    //metodo para regresar al inicio
     private void regresar() {
         principal.irAInicio(this);
     }
-    
+    //metodo para regresar a Home
     private void regresaraHome() {
         principal.irAHome(this);
     }

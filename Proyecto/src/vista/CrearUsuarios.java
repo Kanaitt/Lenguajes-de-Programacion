@@ -1,16 +1,20 @@
 
 package vista;
-
+//Importacion de las clases que utilizaremos
 import controlador.UsuarioCrear;
 import modelo.Usuarios;
+
 import javax.swing.JOptionPane;
 
 public class CrearUsuarios extends javax.swing.JPanel {
-
+    //llamada del metodo principal
     private final Principal principal;
-    
+    //llamado de la clase UsuarioCrear
     UsuarioCrear creacion_de_usuario = new UsuarioCrear();
-
+    /**
+     * Creates new form Usuarios
+     * @param principal
+     */
     public CrearUsuarios(Principal principal) {
         this.principal = principal;
         initComponents();
@@ -160,16 +164,17 @@ public class CrearUsuarios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
-        // TODO add your handling code here:
+        // llamada de metodo para regresar al inicio
         regresar();
     }//GEN-LAST:event_salirMouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        // llamada de metodo para regresar a Usuarios
         regresarausuarios();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void annadir_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annadir_usuarioActionPerformed
+        //Captura de datos
         String name = nombre_ingresar.getText();
         String email = correo_ingresar.getText();
         String cc = cedula_ingresar.getText();
@@ -178,12 +183,12 @@ public class CrearUsuarios extends javax.swing.JPanel {
         String user = usuario_ingresar.getText();
         String pass = contrasenna_ingresar.getText();
        
-        
         crear_usuario(name, email, cc, position, cell, user, pass);
         
     }//GEN-LAST:event_annadir_usuarioActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        // llamada de metodo para regresar a Usuarios
         regresarausuarios();
     }//GEN-LAST:event_cancelarActionPerformed
 
@@ -213,10 +218,9 @@ public class CrearUsuarios extends javax.swing.JPanel {
     private javax.swing.JTextField usuario_ingresar;
     // End of variables declaration//GEN-END:variables
 
-    
+    //Logica para la creacion de Usuarios
     private void crear_usuario (String name, String email, String cc, String position, String cell, String user, String pass) {
-        if (user.equals("") || pass.equals("")) {
-
+        if (user.equals("") || pass.equals("")) {//Validacion del campo de usuario y contraseña que no esten vacios
             JOptionPane.showMessageDialog(null, "no puede dejar campos vacios");
         } else {
             Usuarios datos = creacion_de_usuario.crear_usuario(name, email, cc, position, cell, user, pass);
@@ -225,11 +229,11 @@ public class CrearUsuarios extends javax.swing.JPanel {
             }
         }
     }
-    
+    //metodo para regresar al inicio
     private void regresar(){
         principal.irAInicio(this);
     }
-    
+    //metodo para regresar a Usuarios
     private void regresarausuarios(){
         principal.irAUsuarios(this);
     }
