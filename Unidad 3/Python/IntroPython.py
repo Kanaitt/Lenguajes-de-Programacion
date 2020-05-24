@@ -1,3 +1,4 @@
+"""
 print ("Holaaa")
 
 #Documentar ejemplo
@@ -275,6 +276,7 @@ class Persona:
         self.nombre = nombre
         self.edad = edad
         self.correo = correo
+        self.list [Persona]
 
     def funcion2(self):
         print ("Hola mi nombre es "+self.nombre)
@@ -286,7 +288,8 @@ class Persona:
         print ("El calculo del iva es :" + str(calcular))
         
 objecto2 = Persona("Luis", 24,"@gmail")
-objecto2.impuestoIVA()
+objecto2 = Persona("Sebastian", 25,"@hotmail.com")
+#objecto2.impuestoIVA()
 
 print (objecto2.nombre)
 print (objecto2.edad)
@@ -304,7 +307,7 @@ del objecto2
 
 """[Python COLLECTIONS]
 1. LIST : Coleccion ordenada de elementos que pueden ser modificados (si duplicados)
-2. TUPLE : 1. LIST : Coleccion ordenada de elementos que NO pueden ser modificados (si duplicados)
+2. TUPLE :Coleccion ordenada de elementos que NO pueden ser modificados (si duplicados)
 3. Set: Coleccion desordenada no indexada (no acepta duplicas)
 4. Dictionary: Coleccion de datos, desordenada, puede modificar (no duplicados)
 """
@@ -400,3 +403,9 @@ PyGTK
 Web:
 Django
 """
+
+"""
+
+class Pelicula:
+    def __init__(self,pelicula):
+        
