@@ -15,9 +15,6 @@ datoAnno = tk.IntVar()
 datoResu = tk.StringVar()
 datoLink = tk.StringVar()
 
-impresion = StringVar()
-
-
 def crearPelicula():
     #Creando una pelicula nueva (Vacio)
     peliculas = {} #pelicula nueva
